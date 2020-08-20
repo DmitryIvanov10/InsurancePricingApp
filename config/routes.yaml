@@ -1,4 +1,14 @@
-php_info:
-    path: /php_info
-    controller: App\Transport\Http\Controller\TestController::getPhpInfo
+price_model_get:
+    path: /api/price-model.{_format<json>?json}
+    controller: App\Transport\Http\Controller\PriceModelController::getPriceModel
     methods: GET
+
+price_model_post:
+    path: /api/price-model.{_format<json>?json}
+    controller: App\Transport\Http\Controller\PriceModelController::createPriceModel
+    methods: POST
+
+price_model_patch:
+    path: /api/price-model/{id}.{_format<json>?json}
+    controller: App\Transport\Http\Controller\PriceModelController::updatePriceModel
+    methods: PATCH

@@ -1,0 +1,18 @@
+openapi: 3.0.1
+info:
+  title: Insurance App API
+  description: 'Endpoints for the insurance price model'
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+- url: http://app.local:81/api
+  description: local
+tags:
+- name: price model
+  description: PriceModel endpoints
+paths:
+  /price-model:
+    $ref: 'routes/priceModel/price_model.yaml#/paths/~1price-model'
+  /price-model/{id}:
+    $ref: 'routes/priceModel/price_model.yaml#/paths/~1price-model~1{id}'

@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "bbf30b33-4e7d-467f-8c75-b4e2855d15d8",
+		"name": "InsurancePricingApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PriceModel: GetByParameters",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://app.local:81/api/price-model?zip=8000&age=29&insuredPeopleAmountType=alone",
+					"protocol": "http",
+					"host": [
+						"app",
+						"local"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"price-model"
+					],
+					"query": [
+						{
+							"key": "zip",
+							"value": "8000"
+						},
+						{
+							"key": "age",
+							"value": "29"
+						},
+						{
+							"key": "insuredPeopleAmountType",
+							"value": "alone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PriceModel: Update",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"price\": 12.43\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://app.local:81/api/price-model/1",
+					"protocol": "http",
+					"host": [
+						"app",
+						"local"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"price-model",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PriceModel: Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"priceModel\": {\n\t\t\"districtFactorId\": 1,\n\t\t\"ageFactorId\": 1,\n\t\t\"insuredPeopleAmountFactorId\": 2,\n\t\t\"price\": 23.3\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://app.local:81/api/price-model",
+					"protocol": "http",
+					"host": [
+						"app",
+						"local"
+					],
+					"port": "81",
+					"path": [
+						"api",
+						"price-model"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

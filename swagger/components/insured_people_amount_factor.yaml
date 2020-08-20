@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: int
+    example: 1
+    title: insured_people_amount_factor.id
+    description: The ID of the insured people amount factor
+  type:
+    type: string
+    enum:
+    - ALONE
+    - GROUP
+    example: ALONE
+    title: insured_people_amount_factor.type
+    description: The type of the insured people amount factor

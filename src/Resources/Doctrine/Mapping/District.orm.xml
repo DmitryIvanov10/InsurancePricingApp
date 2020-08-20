@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping
+        xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+    <entity
+            name="App\Domain\District"
+            table="district"
+            repository-class="App\Infrastructure\Repository\DistrictRepository"
+    >
+        <cache usage="READ_ONLY" />
+        <indexes>
+            <index name="district_code_id" columns="district_code_id" />
+        </indexes>
+        <unique-constraints>
+            <unique-constraint name="zip" columns="zip" />
+            <unique-constraint name="zip_code" columns="zip,district_code_id" />
+        </unique-constraints>
+        <id name="id" type="integer" column="id" >
+            <generator strategy="IDENTITY" />
+        </id>
+        <field name="zip" type="integer" column="zip" length="4" />
+        <field name="city" column="city" length="50" />
+        <many-to-one field="code" target-entity="App\Domain\DistrictCode" >
+            <join-column name="district_code_id" nullable="false" />
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

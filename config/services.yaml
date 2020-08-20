@@ -29,7 +29,31 @@ services:
     # Domain
 
     # Factories
-    App\Domain\Factory\UrlCheckFactory: ~
+    App\Domain\Factory\AgeFactorFactory: ~
+    App\Domain\Factory\DistrictFactorFactory: ~
+    App\Domain\Factory\InsuredPeopleAmountFactorFactory: ~
+    App\Domain\Factory\DistrictCodeFactory: ~
+    App\Domain\Factory\DistrictFactory: ~
+    App\Domain\Factory\PriceModelFactory: ~
 
     # Repository
-    App\Domain\Interfaces\Repository\UrlCheckRepositoryInterface: '@App\Infrastructure\Repository\UrlCheckRepository'
+    App\Infrastructure\Repository\DistrictFactorRepository: ~
+    App\Domain\Interfaces\Repository\DistrictFactorRepositoryInterface: '@App\Infrastructure\Repository\DistrictFactorRepository'
+
+    App\Infrastructure\Repository\DistrictRepository: ~
+    App\Domain\Interfaces\Repository\DistrictRepositoryInterface:
+        class: App\Infrastructure\Repository\DistrictRepository
+        arguments:
+            $externalDistrictRepository: '@App\Infrastructure\Repository\DistrictExternalRepository'
+
+    App\Infrastructure\Repository\AgeFactorRepository: ~
+    App\Domain\Interfaces\Repository\AgeFactorRepositoryInterface: '@App\Infrastructure\Repository\AgeFactorRepository'
+
+    App\Infrastructure\Repository\InsuredPeopleAmountFactorRepository: ~
+    App\Domain\Interfaces\Repository\InsuredPeopleAmountFactorRepositoryInterface: '@App\Infrastructure\Repository\InsuredPeopleAmountFactorRepository'
+
+    App\Infrastructure\Repository\PriceModelRepository: ~
+    App\Domain\Interfaces\Repository\PriceModelRepositoryInterface: '@App\Infrastructure\Repository\PriceModelRepository'
+
+    App\Infrastructure\Repository\DistrictCodeRepository: ~
+    App\Domain\Interfaces\Repository\DistrictCodeRepositoryInterface: '@App\Infrastructure\Repository\DistrictCodeRepository'

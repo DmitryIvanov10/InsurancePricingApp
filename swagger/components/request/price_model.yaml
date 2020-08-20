@@ -1,0 +1,21 @@
+type: object
+properties:
+  priceModel:
+    type: object
+    properties:
+      districtFactorId:
+        type: integer
+        example: 1
+        description: district_factor.id
+      ageFactorId:
+        type: integer
+        example: 1
+        description: age_factor.id
+      insuredPeopleAmountFactorId:
+        type: integer
+        example: 2
+        description: insured_people_amount_factor.id
+      price:
+        type: float
+        example: 12.43
+        description: the price of the PriceModel (to be saved to price_model.price)

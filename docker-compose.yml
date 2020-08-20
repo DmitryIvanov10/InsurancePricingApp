@@ -1,6 +1,16 @@
 version: '3.7'
 
 services:
+  swagger_ui:
+    image: swaggerapi/swagger-ui:3.18.2
+    container_name: swagger_ui
+    volumes:
+    - .:/usr/share/nginx/html/openapi
+    ports:
+    - 9009:8080
+    networks:
+    - app-network
+
   mysql:
     image: library/mysql:5.7
     expose:

@@ -1,0 +1,12 @@
+type: object
+properties:
+  id:
+    type: int
+    example: 1
+    title: district_code.id
+    description: The ID of the district code
+  value:
+    type: int
+    example: ZU
+    title: district_code.value
+    description: The 2char value of the district code

@@ -1,0 +1,13 @@
+type: object
+properties:
+  price:
+    type: float
+    example: 12.43
+    title: price_model.id
+    description: The price of the price model
+  ageFactor:
+    $ref: 'age_factor.yaml'
+  districtFactor:
+    $ref: 'district_factor.yaml'
+  insuredPeopleAmountFactor:
+    $ref: 'insured_people_amount_factor.yaml'

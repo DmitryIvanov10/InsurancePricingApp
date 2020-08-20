@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: int
+    example: 1
+    title: age_factor.id
+    description: The ID of the age factor
+  type:
+    type: string
+    enum:
+    - YOUNG
+    - OLD
+    example: YOUNG
+    title: age_factor.type
+    description: The type of the age factor

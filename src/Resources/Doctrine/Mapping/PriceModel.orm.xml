@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping
+        xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+>
+    <entity
+            name="App\Domain\PriceModel"
+            table="price_model"
+            repository-class="App\Infrastructure\Repository\PriceModelRepository"
+    >
+        <cache usage="READ_ONLY" />
+        <indexes>
+            <index name="age_factor_id" columns="age_factor_id" />
+            <index name="district_factor_id" columns="district_factor_id" />
+            <index name="insured_people_factor_id" columns="insured_people_factor_id" />
+        </indexes>
+        <unique-constraints>
+            <unique-constraint name="factors" columns="age_factor_id,district_factor_id,insured_people_factor_id" />
+        </unique-constraints>
+        <id name="id" type="integer" column="id" >
+            <generator strategy="IDENTITY" />
+        </id>
+        <field name="price" type="decimal" column="price" precision="8" scale="2" />
+        <many-to-one field="districtFactor" target-entity="App\Domain\DistrictFactor" >
+            <join-column name="district_factor_id" nullable="false" />
+        </many-to-one>
+        <many-to-one field="insuredPeopleAmountFactor" target-entity="App\Domain\InsuredPeopleAmountFactor">
+            <join-column name="insured_people_factor_id" nullable="false" />
+        </many-to-one>
+        <many-to-one field="ageFactor" target-entity="App\Domain\AgeFactor">
+            <join-column name="age_factor_id" nullable="false" />
+        </many-to-one>
+    </entity>
+</doctrine-mapping>

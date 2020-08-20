@@ -1,0 +1,9 @@
+type: object
+properties:
+  id:
+    type: int
+    example: 1
+    title: district_factor.id
+    description: The ID of the district factor
+  code:
+    $ref: 'district_code.yaml'

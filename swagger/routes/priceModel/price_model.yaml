@@ -1,0 +1,101 @@
+paths:
+  /price-model/{id}:
+    patch:
+      tags:
+      - price model
+      summary: Update PriceModel price
+      description: Returns PriceModel with an updated price
+      operationId: updatePriceModel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchRequest'
+      parameters:
+      - id:
+        name: id
+        in: path
+        description: ID of the PriceModel
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceModel'
+        404:
+          description: PriceMidel is not found
+          content: {}
+  /price-model:
+    get:
+      tags:
+      - price model
+      summary: Find PriceModels
+      description: Returns PriceModel array or an empty array if no data found
+      operationId: getPriceModel
+      parameters:
+      - zip:
+        name: zip
+        in: query
+        description: zip (postal) number of the insured person's address
+        required: false
+        schema:
+          type: integer
+      - age:
+        name: age
+        in: query
+        description: age of the insured person
+        required: false
+        schema:
+          type: integer
+      - insuredPeopleAmountType:
+        name: insuredPeopleAmountType
+        in: query
+        description: type of the insurance by the amount of the insured people
+        required: false
+        schema:
+          type: string
+          enum: ['ALONE', 'GROUP']
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceModels'
+    post:
+      tags:
+      - price model
+      summary: Create PriceModel
+      description: Returns the created PriceModel
+      operationId: createPriceModel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRequest'
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceModel'
+        400:
+          description: Invalid POST parameters supplied
+          content: {}
+components:
+  schemas:
+    PatchRequest:
+      $ref: '../../components/request/price.yaml'
+    PostRequest:
+      $ref: '../../components/request/price_model.yaml'
+    PriceModel:
+      $ref: '../../components/price_model.yaml'
+    PriceModels:
+      type: array
+      items:
+        $ref: '../../components/price_model.yaml'
